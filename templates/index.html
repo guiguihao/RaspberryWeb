@@ -1,0 +1,663 @@
+$def with (name,footnote,wiringPi,BCM,fun,pin)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$name</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<script>
+         jQuery(document).ready(function(){
+              jQuery("li").click(function(){
+                  state = 1;
+                  if(jQuery(this).hasClass("bcm"))
+                  {
+                     if(jQuery(this).hasClass("outColor"))
+                     {
+                       state = 0;
+                       jQuery(this).removeClass("outColor");
+                     }else
+                     {
+                       state = 1;
+                      jQuery(this).addClass("important outColor");
+                     }
+                     jQuery.post("/",{
+			              channel:jQuery(this).text(),
+			              mode:"BCM",
+			              st:state
+		             },
+		              function(data,status){
+			                alert(data);
+		              });
+                  }
+
+                   if(jQuery(this).hasClass("bord"))
+                  {
+                     alert(jQuery(this).text()+"bcm");
+                  }
+
+             });
+         });
+
+    </script>
+<style>
+   body ul li{
+     text-align:center;
+     height:40px;
+     line-height:40px;
+   }
+    .outColor{
+       color: red;
+    }
+    .threev{
+        background-color:rgb(255,160,32);
+    }
+    .firvev{
+        background-color:rgb(255,33,21);
+        color: white;
+        border: 1px solid black;
+    }
+    .gray{
+        background-color:rgb(190,192,191);
+         border: 1px solid black;
+    }
+    .white{
+        background-color:rgb(255,255,255);
+        border: 1px solid black;
+    }
+    .bcm{
+        background-color:rgb(255,239,176);
+         border: 1px solid black;
+    }
+    .wiringpi{
+        background-color:rgb(199,237,160);
+
+         border: 1px solid black;
+    }
+    .darkblue{
+        background-color:rgb(5,51,255);
+        color: white;
+        border: 1px solid black;
+    }
+    .blue{
+        background-color:rgb(1,255,255);
+        color: black;
+        border: 1px solid black;
+    }
+    .black{
+         background-color:rgb(0,0,0);
+         color: white;
+          border: 1px solid black;
+    }
+    .grassgreen{
+        background-color:rgb(148,222,73);
+         border: 1px solid black;
+    }
+    .purple
+    {
+        background-color:rgb(157,68,185);
+        color: white;
+         border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<div data-role="page" id="pageone" data-theme="f" >
+    <div data-role="header">
+        <h1>$name</h1>
+    </div>
+    <div  class="ui-grid-a mgin">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">$wiringPi</li>
+                    <li class="bcm">$BCM</li>
+                    <li class="white">$fun</li>
+                    <li class="gray">$pin</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">$pin</li>
+                    <li class="white">$fun</li>
+                    <li class="bcm">$BCM</li>
+                    <li class="wiringpi">$wiringPi</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-a mgin">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi"></li>
+                    <li class="bcm"></li>
+                    <li class="threev">3.3V</li>
+                    <li class="gray ">1</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">2</li>
+                    <li class="firvev">5V</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">8</li>
+                    <li class="bcm">2</li>
+                    <li class="blue">SDA.1</li>
+                    <li class="gray ">3</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">4</li>
+                    <li class="firvev">5V</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">9</li>
+                    <li class="bcm">3</li>
+                    <li class="blue">SCL.1</li>
+                    <li class="gray ">5</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c"  data-role="navbar">
+                <ul>
+                    <li class="gray">6</li>
+                    <li class="black">GND</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c"  data-role="navbar">
+                <ul>
+                    <li class="wiringpi">7</li>
+                    <li class="bcm">4</li>
+                    <li class="grassgreen"> GPIO7</li>
+                    <li class="gray ">7</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">8</li>
+                    <li class="darkblue">TXD</li>
+                    <li class="bcm">14</li>
+                    <li class="wiringpi">15</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi"></li>
+                    <li class="bcm"></li>
+                    <li class="black">GND</li>
+                    <li class="gray ">9</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">10</li>
+                    <li class="darkblue">RXD</li>
+                    <li class="bcm">15</li>
+                    <li class="wiringpi">16</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">0</li>
+                    <li class="bcm">17</li>
+                    <li class="grassgreen">GPIO0</li>
+                    <li class="gray ">11</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">12</li>
+                    <li class="grassgreen">GPIO1</li>
+                    <li class="bcm">18</li>
+                    <li class="wiringpi">1</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">2</li>
+                    <li class="bcm">27</li>
+                    <li class="grassgreen">GPIO2</li>
+                    <li class="gray">13</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+
+                    <li class="gray">14</li>
+                    <li class="black">GND</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">3</li>
+                    <li class="bcm">22</li>
+                    <li class="grassgreen">GPIO3</li>
+                    <li class="gray">15</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">16</li>
+                    <li class="grassgreen">GPIO4</li>
+                    <li class="bcm">23</li>
+                    <li class="wiringpi">4</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi"></li>
+                    <li class="bcm"></li>
+                    <li class="threev">3.3V</li>
+                    <li class="gray ">17</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">18</li>
+                    <li class="grassgreen">GPIO5</li>
+                    <li class="bcm">24</li>
+                    <li class="wiringpi">5</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c"  data-role="navbar">
+                <ul>
+                    <li class="wiringpi">12</li>
+                    <li class="bcm">10</li>
+                    <li class="purple">MOSI</li>
+                    <li class="gray ">19</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c"  data-role="navbar">
+                <ul>
+                    <li class="gray">20</li>
+                    <li class="black">GND</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">13</li>
+                    <li class="bcm">9</li>
+                    <li class="purple">MISO</li>
+                    <li class="gray ">21</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">22</li>
+                    <li class="grassgreen">GPIO6</li>
+                    <li class="bcm">25</li>
+                    <li class="wiringpi">6</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">14</li>
+                    <li class="bcm">11</li>
+                    <li class="purple">SCLK</li>
+                    <li class="gray ">23</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">24</li>
+                    <li class="purple">CEO</li>
+                    <li class="bcm">8</li>
+                    <li class="wiringpi">10</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi"></li>
+                    <li class="bcm"></li>
+                    <li class="black">GND</li>
+                    <li class="gray ">25</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">26</li>
+                    <li class="purple">CE1</li>
+                    <li class="bcm">7</li>
+                    <li class="wiringpi">11</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">30</li>
+                    <li class="bcm">0</li>
+                    <li class="blue">SDA.0</li>
+                    <li class="gray ">27</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">28</li>
+                    <li class="blue">SCL.0</li>
+                    <li class="bcm">1</li>
+                    <li class="wiringpi">31</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">21</li>
+                    <li class="bcm">5</li>
+                    <li class="grassgreen">GPIO21</li>
+                    <li class="gray ">29</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">30</li>
+                    <li class="black">GND</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">22</li>
+                    <li class="bcm">6</li>
+                    <li class="grassgreen">GPIO22</li>
+                    <li class="gray ">31</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">32</li>
+                    <li class="grassgreen">GPIO26</li>
+                    <li class="bcm">12</li>
+                    <li class="wiringpi">26</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c"  data-role="navbar">
+                <ul>
+                    <li class="wiringpi">23</li>
+                    <li class="bcm">13</li>
+                    <li class="grassgreen">GPIO23</li>
+                    <li class="gray ">33</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">34</li>
+                    <li class=" black">GND</li>
+                    <li class="bcm"></li>
+                    <li class="wiringpi"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">24</li>
+                    <li class="bcm">19</li>
+                    <li class="grassgreen">GPIO24</li>
+                    <li class="gray ">35</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">36</li>
+                    <li class="grassgreen">GPIO27</li>
+                    <li class="bcm">16</li>
+                    <li class="wiringpi">27</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi">25</li>
+                    <li class="bcm">26</li>
+                    <li class="grassgreen">GPIO25</li>
+                    <li class="gray ">37</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">38</li>
+                    <li class="grassgreen">GPIO28</li>
+                    <li class="bcm">20</li>
+                    <li class="wiringpi">28</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="wiringpi"></li>
+                    <li class="bcm"></li>
+                    <li class="black">GND</li>
+                    <li class="gray ">39</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-grid-c" data-role="navbar">
+                <ul>
+                    <li class="gray">40</li>
+                    <li class="grassgreen">GPIO29</li>
+                    <li class="bcm">21</li>
+                    <li class="wiringpi">29</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer">
+        <h1>$footnote</h1>
+    </div>
+
+</div>
+
+
+</body>
+</html>
